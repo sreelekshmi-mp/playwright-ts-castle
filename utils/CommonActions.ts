@@ -19,25 +19,20 @@ export class CommonActions {
         return await locator.isVisible();
     }
 
-    // async verifyTextByString(text: string) {
-    // await expect(this.page.getByText(text, { exact: true })).toBeVisible();
-    // }
-    async verifyTextByString(text: string, timeout: number = 10000) {
-    await expect(this.page.getByText(text, { exact: true })).toBeVisible({ timeout });
+    async verifyTextByString(text: string) {
+        await expect(this.page.getByText(text, { exact: true })).toBeVisible({ timeout: 10000 });
     }
 
-    async verifyTextNotPresent(text: string, timeout: number = 10000) {
-    await expect(this.page.getByText(text, { exact: true })).not.toBeVisible({ timeout });
+    async verifyTextNotPresent(text: string) {
+        await expect(this.page.getByText(text, { exact: true })).not.toBeVisible({ timeout: 10000 });
     }
 
+    async clickWithWait(role: string, name: string) {
+        const locator = this.page.getByRole(role as any, { name });
+        await locator.waitFor({ state: 'visible', timeout: 5000 });
+        await locator.click();
+}
 
-    async searchAndSelect(searchText: string, dropdownText: string) {
-    // Focus and fill the search box
-    await this.page.getByRole('textbox', { name: 'Find a product...' }).click();
-    await this.page.getByRole('textbox', { name: 'Find a product...' }).fill(searchText);
-
-    // Click the dropdown item by exact text
-    await this.page.getByText(dropdownText, { exact: true }).first().click();
-    }
 
 }
+

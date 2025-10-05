@@ -1,23 +1,25 @@
 import test from '../../utils/BaseTest';
 
-test.describe('Checkout Flow', () => {
+test.describe('Product Checkout Flow', () => {
   
-  test('should complete half-folded leaflet checkout', async ({ homePage, productPage, flyersPage, leafletPage, cartPage }) => {
-    // Navigate to base URL
-    await homePage.goToBaseUrl();
+  test('Add half-folded leaflet to the cart and verify checkout details', async ({ 
+                      homePage, productPage, flyersPage, 
+                      leafletPage, cartPage }) => {
 
     // Navigate through product flow
     await productPage.goToFlyersMenu();
     await flyersPage.navigateToHalfFoldLeaflets();
 
-    // Select product options
+    // Select product options and add to cart
     await leafletPage.clickLandscape();
     await leafletPage.clickMattAppearance();
     await leafletPage.clickDoubleSidedFinishing();
     await leafletPage.clickAddToCart();
 
+    // Verify cart overview page is displayed
     await homePage.verifyTextByString('Your cart overview');
 
+    // Verify product details in the cart
     await cartPage.verifyProductDetails([
         'Half fold leaflets',
         '1.000', 
@@ -29,6 +31,7 @@ test.describe('Checkout Flow', () => {
     ]);
 
 
+    // Verify pricing in cart overview
     await cartPage.verifyCartOverview([
      '€296.99'
     ]);
@@ -36,3 +39,29 @@ test.describe('Checkout Flow', () => {
   });
 
 });
+
+
+  // -------------------------------
+  // Skipped test: Checkout flow in another language (german)
+  // Currently WIP; only English tests are stable for submission
+  // -------------------------------
+  test.skip('Checkout cart flow in German', async ({ homePage, productPage, flyersPage, leafletPage, cartPage }) => {
+
+    await homePage.selectCountryFromDropDown("Germany");
+
+    // Navigate through product flow
+    await productPage.clickAdvertisingPrintMenu();
+    await productPage.goToFlyersMenu();
+    await flyersPage.navigateToHalfFoldLeaflets();
+
+    // Product selections
+    await leafletPage.clickLandscape();
+    await leafletPage.clickMattAppearance();
+    await leafletPage.clickDoubleSidedFinishing();
+    await leafletPage.clickAddToCart();
+
+    await homePage.verifyTextByString('Ihr Warenkorb');
+
+  });
+
+

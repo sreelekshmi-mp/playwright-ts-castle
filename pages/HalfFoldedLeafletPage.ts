@@ -1,26 +1,28 @@
 import { Page } from '@playwright/test';
 import { CommonActions } from '../utils/CommonActions';
+import { Language, LanguageMap } from '../utils/LanguageMap';
 
 export class HalfFoldedLeafletPage extends CommonActions {
-    constructor(page: Page) {
-        super(page);
-    }
+  private lang: Language;
 
-    async clickLandscape() {
-        await this.clickByRoleName('link', 'Landscape');
-    }
+  constructor(page: Page, language: Language) {
+    super(page);
+    this.lang = language;
+  }
 
-    async clickMattAppearance() {
-        await this.clickByRoleName('link', 'Matt Matt');
-    }
+  async clickLandscape() {
+    await this.clickWithWait('link', LanguageMap[this.lang].landscape);
+  }
 
-    async clickDoubleSidedFinishing() {
-        await this.clickByRoleName('link', 'Double-sided Matte lamination');
-    }
+  async clickMattAppearance() {
+    await this.clickWithWait('link', LanguageMap[this.lang].mattAppearance);
+  }
 
-    async clickAddToCart() {
-        await this.clickByRoleName('button', 'Add to cart');
-    }
-    
+  async clickDoubleSidedFinishing() {
+    await this.clickWithWait('link', LanguageMap[this.lang].doubleSidedFinishing);
+  }
 
+  async clickAddToCart() {
+    await this.clickWithWait('button', LanguageMap[this.lang].addToCart);
+  }
 }

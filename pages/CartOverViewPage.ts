@@ -1,6 +1,5 @@
 import { Page, expect } from '@playwright/test';
 import { CommonActions } from '../utils/CommonActions';
-import { HalfFoldedLeafletPage } from './HalfFoldedLeafletPage';
 
 
 export class CartOverViewPage extends CommonActions {
@@ -50,6 +49,5 @@ async deleteCartItemByHeading(heading: string, quality?: string) {
   throw new Error(`Cart item with heading "${heading}"${quality ? ` and quality "
     ${quality}"` : ''} not found`);
 }
-
 
 }

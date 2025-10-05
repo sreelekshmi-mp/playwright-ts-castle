@@ -1,21 +1,24 @@
-import { Page, expect } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { CommonActions } from '../utils/CommonActions';
+import { Language, LanguageMap } from '../utils/LanguageMap';
 
-export class ProductPage extends CommonActions{
-  constructor(page: Page) {
-    super(page); 
+export class ProductPage extends CommonActions {
+  private lang: Language;
+
+  constructor(page: Page, language: Language) {
+    super(page);
+    this.lang = language;
   }
 
   async goToFlyersMenu() {
-    await this.page.getByRole('link', { name: 'Flyers & Leaflets' }).click();
+    await this.clickByRoleName('link', LanguageMap[this.lang].flyersMenu);
   }
 
   async goToBookletsMenu() {
-    await this.page.getByRole('link', { name: 'Booklets' }).click();
+    await this.clickByRoleName('link', LanguageMap[this.lang].bookletsMenu);
   }
 
-  async goToBusinessCardsMenu() {
-    await this.page.getByRole('link', { name: 'Business Cards' }).click();
+  async clickAdvertisingPrintMenu() {
+    await this.clickByRoleName('link', LanguageMap[this.lang].advertisingPrintMenu);
   }
-
 }
