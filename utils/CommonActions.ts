@@ -19,17 +19,25 @@ export class CommonActions {
         return await locator.isVisible();
     }
 
-    async verifyTextByString(text: string) {
-    await expect(this.page.getByText(text, { exact: true })).toBeVisible();
-}
+    // async verifyTextByString(text: string) {
+    // await expect(this.page.getByText(text, { exact: true })).toBeVisible();
+    // }
+    async verifyTextByString(text: string, timeout: number = 10000) {
+    await expect(this.page.getByText(text, { exact: true })).toBeVisible({ timeout });
+    }
 
-async searchAndSelect(searchText: string, dropdownText: string) {
+    async verifyTextNotPresent(text: string, timeout: number = 10000) {
+    await expect(this.page.getByText(text, { exact: true })).not.toBeVisible({ timeout });
+    }
+
+
+    async searchAndSelect(searchText: string, dropdownText: string) {
     // Focus and fill the search box
     await this.page.getByRole('textbox', { name: 'Find a product...' }).click();
     await this.page.getByRole('textbox', { name: 'Find a product...' }).fill(searchText);
 
     // Click the dropdown item by exact text
     await this.page.getByText(dropdownText, { exact: true }).first().click();
-}
+    }
 
 }

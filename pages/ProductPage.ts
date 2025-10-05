@@ -6,10 +6,16 @@ export class ProductPage extends CommonActions{
     super(page); 
   }
 
-
   async goToFlyersMenu() {
     await this.page.getByRole('link', { name: 'Flyers & Leaflets' }).click();
   }
 
+  async goToBookletsMenu() {
+    await this.page.getByRole('link', { name: 'Booklets' }).click();
+  }
+
+  async goToBusinessCardsMenu() {
+    await this.page.getByRole('link', { name: 'Business Cards' }).click();
+  }
 
 }

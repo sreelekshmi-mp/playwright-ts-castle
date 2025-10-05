@@ -21,5 +21,6 @@ export class HalfFoldedLeafletPage extends CommonActions {
     async clickAddToCart() {
         await this.clickByRoleName('button', 'Add to cart');
     }
+    
 
 }

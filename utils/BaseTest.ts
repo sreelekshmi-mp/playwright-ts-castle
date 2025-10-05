@@ -32,13 +32,16 @@ const test = baseTest.extend<PageObjects>({
   },
 });
 
-test.beforeEach(async ({ page }) => {
-  // Optionally navigate to base URL
+
+test.beforeEach(async ({ page }, testInfo) => {
+  console.log(`Starting test: ${testInfo.title}`);
 });
 
-test.afterEach(async ({ page }) => {
-  await page.close();
+
+test.afterEach(async ({}, testInfo) => {
+  console.log(`Test finished: ${testInfo.title} - Status: ${testInfo.status}`);
 });
+
 
 export default test;
 export const expect = baseTest.expect;

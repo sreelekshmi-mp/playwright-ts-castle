@@ -1,6 +1,8 @@
 import test from '../../utils/BaseTest';
+import { HomePage } from '../../pages/HomePage';
+import { CommonActions } from '../../utils/CommonActions';
 
-test.describe('Checkout Flow', () => {
+test.describe('Cart delete Flow', () => {
   
   test('should complete half-folded leaflet checkout', async ({ homePage, productPage, flyersPage, leafletPage, cartPage }) => {
     // Navigate to base URL
@@ -12,27 +14,21 @@ test.describe('Checkout Flow', () => {
 
     // Select product options
     await leafletPage.clickLandscape();
-    await leafletPage.clickMattAppearance();
-    await leafletPage.clickDoubleSidedFinishing();
+
     await leafletPage.clickAddToCart();
 
     await homePage.verifyTextByString('Your cart overview');
 
     await cartPage.verifyProductDetails([
         'Half fold leaflets',
-        '1.000', 
-        'Half-fold',
-        'Landscape',
-        'A5 landscape',
-        'Matt',
-        'Double-sided Matte lamination'
-    ]);
+        'Landscape']);
+
+    await cartPage.deleteCartItemByHeading("Half fold leaflets", "Landscape" );
+
+    await homePage.verifyTextByString('Your cart is empty.');
+    await homePage.verifyTextNotPresent('Half fold leaflets');
 
 
-    await cartPage.verifyCartOverview([
-     '€296.99'
-    ]);
 
-  });
-
+    });
 });
