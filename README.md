@@ -18,7 +18,7 @@ It includes end-to-end checkout flows and additional sanity tests for key functi
 
 ## Prerequisites
 
-Before running the tests, ensure the following are installed:
+### Before running the tests, ensure the following are installed:
 
 - **Node.js** (v18 or above recommended) – required to run Playwright and manage dependencies.  
 - **npm** – comes with Node.js for installing packages.  
@@ -28,16 +28,16 @@ Before running the tests, ensure the following are installed:
 
 ## Project Setup
 
-### 1. Clone the repository
+1. Clone the repository
 
 git clone https://github.com/sreelekshmi-mp/playwright-ts-castle.git
 cd playwright-ts-castle
 
-### 2. Install dependencies
+2. Install dependencies
 
 npm install
 
-### 2. Install Playwright browsers
+3. Install Playwright browsers
 
 npx playwright install
 
@@ -53,11 +53,11 @@ npx playwright install
 
 ## Running Tests
 
-### Run all tests
+1. Run all tests
 
 npx playwright test
 
-### Run tests in a specific folder
+2. Run tests in a specific folder
 
 npx playwright test tests/e2e
 npx playwright test tests/sanity
