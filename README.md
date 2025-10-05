@@ -30,16 +30,16 @@ It includes end-to-end checkout flows and additional sanity tests for key functi
 
 1. Clone the repository
 
-git clone https://github.com/sreelekshmi-mp/playwright-ts-castle.git
-cd playwright-ts-castle
+* git clone https://github.com/sreelekshmi-mp/playwright-ts-castle.git
+* cd playwright-ts-castle
 
 2. Install dependencies
 
-npm install
+* npm install
 
 3. Install Playwright browsers
 
-npx playwright install
+* npx playwright install
 
 ---
 
@@ -55,12 +55,12 @@ npx playwright install
 
 1. Run all tests
 
-npx playwright test
+* npx playwright test
 
 2. Run tests in a specific folder
 
-npx playwright test tests/e2e
-npx playwright test tests/sanity
+* npx playwright test tests/e2e
+* npx playwright test tests/sanity
 
 ---
 
@@ -69,7 +69,7 @@ npx playwright test tests/sanity
 - **Playwright HTML report** is enabled by default and stored in the `playwright-report` folder  
 - Open the latest report using:
 
-npx playwright show-report
+* npx playwright show-report
 
 ---
 
