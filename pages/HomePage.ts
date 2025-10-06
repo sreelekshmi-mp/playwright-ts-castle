@@ -42,14 +42,14 @@ export class HomePage extends CommonActions {
 
   // Click the country menu dropdown
   async clickCountryMenuDropdown() {
-    const button = this.page.locator('.header__language-bar-icon').first();
-
+    const button = this.page.locator('.header__language-bar').first();
     if (!(await button.isVisible())) {
       throw new Error('Country menu dropdown button not visible');
     }
 
     await button.click();
   }
+
 
   // Verify expected countries are available in the dropdown
   async verifyAvailableCountriesInDropDown(expectedCountries: string[]) {

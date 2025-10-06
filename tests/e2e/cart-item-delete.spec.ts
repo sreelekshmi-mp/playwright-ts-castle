@@ -8,14 +8,18 @@ test.describe('Cart Item Deletion Flow', () => {
 
     // Navigate through product flow
     await productPage.goToFlyersMenu();
+    await productPage.verifyHeadingByText('Leaflet Printing & Flyers');
+
     await flyersPage.navigateToHalfFoldLeaflets();
+    await flyersPage.verifyHeadingByText('Half Fold Leaflets');
+
 
     // Select product options and add to cart
     await leafletPage.clickLandscape();
     await leafletPage.clickAddToCart();
 
     // Verify product is added to the cart
-    await homePage.verifyTextByString('Your cart overview');
+    await homePage.verifyHeadingByText('Your cart overview');
     await cartPage.verifyProductDetails([
         'Half fold leaflets',
         'Landscape']);

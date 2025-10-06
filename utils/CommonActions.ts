@@ -11,25 +11,28 @@ export class CommonActions {
         await locator.fill(text);
     }
 
-    async verifyText(locator: Locator, expectedText: string) {
-        await expect(locator).toHaveText(expectedText);
-    }
-
     async isVisible(locator: Locator) {
         return await locator.isVisible();
     }
 
+    async verifyHeadingByText(text: string) {
+        await expect(this.page.getByRole('heading', { name: text }))
+                    .toBeVisible({ timeout: 7000 });
+    }
+
     async verifyTextByString(text: string) {
-        await expect(this.page.getByText(text, { exact: true })).toBeVisible({ timeout: 10000 });
+        await expect(this.page.getByText(text, { exact: true }))
+                    .toBeVisible({ timeout: 7000 });
     }
 
     async verifyTextNotPresent(text: string) {
-        await expect(this.page.getByText(text, { exact: true })).not.toBeVisible({ timeout: 10000 });
+        await expect(this.page.getByText(text, { exact: true })).not
+                .toBeVisible({ timeout: 7000 });
     }
 
     async clickWithWait(role: string, name: string) {
         const locator = this.page.getByRole(role as any, { name });
-        await locator.waitFor({ state: 'visible', timeout: 5000 });
+        await locator.waitFor({ state: 'visible', timeout: 7000 });
         await locator.click();
 }
 

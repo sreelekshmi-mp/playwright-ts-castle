@@ -8,7 +8,11 @@ test.describe('Product Checkout Flow', () => {
 
     // Navigate through product flow
     await productPage.goToFlyersMenu();
+    await productPage.verifyHeadingByText('Leaflet Printing & Flyers');
+
     await flyersPage.navigateToHalfFoldLeaflets();
+    await flyersPage.verifyHeadingByText('Half Fold Leaflets');
+
 
     // Select product options and add to cart
     await leafletPage.clickLandscape();
@@ -17,7 +21,7 @@ test.describe('Product Checkout Flow', () => {
     await leafletPage.clickAddToCart();
 
     // Verify cart overview page is displayed
-    await homePage.verifyTextByString('Your cart overview');
+    await homePage.verifyHeadingByText('Your cart overview');
 
     // Verify product details in the cart
     await cartPage.verifyProductDetails([
@@ -45,7 +49,9 @@ test.describe('Product Checkout Flow', () => {
   // Skipped test: Checkout flow in another language (german)
   // Currently WIP; only English tests are stable for submission
   // -------------------------------
-  test.skip('Checkout cart flow in German', async ({ homePage, productPage, flyersPage, leafletPage, cartPage }) => {
+  test.skip('Checkout cart flow in German', async ({ 
+                    homePage, productPage, flyersPage, 
+                    leafletPage, cartPage }) => {
 
     await homePage.selectCountryFromDropDown("Germany");
 

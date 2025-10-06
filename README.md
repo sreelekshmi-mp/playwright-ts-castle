@@ -1,7 +1,7 @@
 
 # Playwright Test Automation – Helloprint E-commerce
 
-This repository contains a **Playwright + TypeScript test automation framework** designed to validate the e-commerce flow on **helloprint.ie**.  
+This repository contains a **Playwright + TypeScript test automation framework** designed to validate the e-commerce flow on [**helloprint.ie**](https://www.helloprint.ie) 
 It includes end-to-end checkout flows and additional sanity tests for key functionalities.
 
 ---
@@ -68,8 +68,7 @@ It includes end-to-end checkout flows and additional sanity tests for key functi
 
 - **Playwright HTML report** is enabled by default and stored in the `playwright-report` folder  
 - Open the latest report using:
-
-* npx playwright show-report
+  * npx playwright show-report
 
 ---
 
@@ -82,11 +81,10 @@ It includes end-to-end checkout flows and additional sanity tests for key functi
 
 ## TEST-NOTES.md
 
-- Tests cover **critical e-commerce flows**: checkout, cart management, and country selection  
+- Tests cover **critical e-commerce flows**: checkout, cart item removal, and country selection  
 - **Prioritization in CI/CD pipeline**:  
   - Checkout flow – **E2E (critical)**  
-  - Cart operations – **sanity/critical**  
+  - Cart item removal – **sanity/critical**  
   - Country dropdown verification – **sanity/medium priority**
 
 ---
-
