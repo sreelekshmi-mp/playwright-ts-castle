@@ -17,7 +17,7 @@ export class CommonActions {
 
     async verifyHeadingByText(text: string) {
         await expect(
-            this.page.getByRole('heading', { name: new RegExp(`^\\s*${text}\\s*$`) }))
+            this.page.getByRole('heading', { name: new RegExp(`^\\s*${text}\\s*$`)}))
                     .toBeVisible({ timeout: 7000});
     }
 
