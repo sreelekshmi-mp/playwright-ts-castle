@@ -47,6 +47,7 @@ test.beforeEach(async ({ homePage }, testInfo) => {
 
   // Navigate to base URL before each test
   await homePage.goToBaseUrl();
+
 });
 
 

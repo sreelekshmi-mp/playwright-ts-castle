@@ -24,6 +24,7 @@ async verifyCartOverview(texts: string[]) {
     }
 }
 
+
 async deleteCartItemByHeading(heading: string, quality?: string) {
   const cartItems = this.page.locator('.new-cart-item');
   const count = await cartItems.count();
@@ -44,6 +45,7 @@ async deleteCartItemByHeading(heading: string, quality?: string) {
     // Found matching item and click delete
     await item.locator('.new-cart-item__actions > button:nth-child(3)').click();
     return;
+
   }
 
   throw new Error(`Cart item with heading "${heading}"${quality ? ` and quality "

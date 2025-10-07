@@ -16,26 +16,29 @@ export class CommonActions {
     }
 
     async verifyHeadingByText(text: string) {
-        await expect(this.page.getByRole('heading', { name: text }))
-                    .toBeVisible({ timeout: 7000 });
+        await expect(
+            this.page.getByRole('heading', { name: new RegExp(`^\\s*${text}\\s*$`) }))
+                    .toBeVisible({ timeout: 7000});
     }
+
 
     async verifyTextByString(text: string) {
         await expect(this.page.getByText(text, { exact: true }))
-                    .toBeVisible({ timeout: 7000 });
+                    .toBeVisible({ timeout: 7000});
     }
 
     async verifyTextNotPresent(text: string) {
         await expect(this.page.getByText(text, { exact: true })).not
-                .toBeVisible({ timeout: 7000 });
+                .toBeVisible({ timeout: 7000});
     }
 
     async clickWithWait(role: string, name: string) {
         const locator = this.page.getByRole(role as any, { name });
         await locator.waitFor({ state: 'visible', timeout: 7000 });
+        await expect(locator).toBeEnabled({ timeout: 7000 });
         await locator.click();
-}
 
+    }
 
 }
 
