@@ -1,5 +1,5 @@
 
-# Playwright Test Automation – E-commerce
+# Playwright Test Automation
 
 This repository contains a **Playwright + TypeScript test automation framework** designed to validate the e-commerce flow.
 It includes end-to-end checkout flows and additional sanity tests for key functionalities.
