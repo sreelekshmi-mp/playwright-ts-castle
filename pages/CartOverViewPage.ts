@@ -33,7 +33,8 @@ async deleteCartItemByHeading(heading: string, quality?: string) {
     const item = cartItems.nth(i);
 
     // Get heading text inside title
-    const itemHeading = await item.locator('.new-cart-item__title .new-cart-item__heading').innerText();
+    const itemHeading = await item.locator('.new-cart-item__title .new-cart-item__heading')
+                        .innerText();
     if (itemHeading.trim() !== heading) continue;
 
     // If quality is provided, check content text

@@ -45,29 +45,4 @@ test.describe('Product Checkout Flow', () => {
 });
 
 
-  // -------------------------------
-  // Skipped test: Checkout flow in another language (german)
-  // Currently WIP; only English tests are stable for submission
-  // -------------------------------
-  test.skip('Checkout cart flow in German', async ({ 
-                    homePage, productPage, flyersPage, 
-                    leafletPage, cartPage }) => {
-
-    await homePage.selectCountryFromDropDown("Germany");
-
-    // Navigate through product flow
-    await productPage.clickAdvertisingPrintMenu();
-    await productPage.goToFlyersMenu();
-    await flyersPage.navigateToHalfFoldLeaflets();
-
-    // Product selections
-    await leafletPage.clickLandscape();
-    await leafletPage.clickMattAppearance();
-    await leafletPage.clickDoubleSidedFinishing();
-    await leafletPage.clickAddToCart();
-
-    await homePage.verifyTextByString('Ihr Warenkorb');
-
-  });
-
 

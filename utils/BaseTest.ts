@@ -13,6 +13,7 @@ interface PageObjects {
     leafletPage: HalfFoldedLeafletPage;
     cartPage: CartOverViewPage;
     language: Language;
+    
 }
 
 
