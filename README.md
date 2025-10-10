@@ -1,7 +1,7 @@
 
-# Playwright Test Automation – Helloprint E-commerce
+# Playwright Test Automation – E-commerce
 
-This repository contains a **Playwright + TypeScript test automation framework** designed to validate the e-commerce flow on [**helloprint.ie**](https://www.helloprint.ie) 
+This repository contains a **Playwright + TypeScript test automation framework** designed to validate the e-commerce flow.
 It includes end-to-end checkout flows and additional sanity tests for key functionalities.
 
 ---
